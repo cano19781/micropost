@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_filter :get_users
   # GET /posts
   # GET /posts.json
   def index
@@ -25,7 +26,7 @@ class PostsController < ApplicationController
   # GET /posts/new.json
   def new
     @post = Post.new
-    @users = User.all.map {|user| [user.name, user.id]}
+    
 
     respond_to do |format|
       format.html # new.html.erb
@@ -81,4 +82,9 @@ class PostsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+private
+def get_users
+  @users = User.all.map {|user| [user.name, user.id]}
+end
 end
