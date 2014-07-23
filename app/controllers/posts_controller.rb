@@ -1,9 +1,10 @@
 class PostsController < ApplicationController
   before_filter :get_users
+  before_filter :authenticate_user!
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    @posts = Post.order('created_at desc')
 
     respond_to do |format|
       format.html # index.html.erb
@@ -42,7 +43,7 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-    @post = Post.new(params[:post])
+    @post = current_user.posts.new(params[:post])
 
     respond_to do |format|
       if @post.save
@@ -58,7 +59,7 @@ class PostsController < ApplicationController
   # PUT /posts/1
   # PUT /posts/1.json
   def update
-    @post = Post.find(params[:id])
+    @post = current_user.posts.find(params[:id])
 
     respond_to do |format|
       if @post.update_attributes(params[:post])
