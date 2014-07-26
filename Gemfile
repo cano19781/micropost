@@ -7,6 +7,8 @@ gem 'rails', '3.2.17'
 
 gem 'devise'
 
+gem 'strong_parameters'
+
 group :development do
 gem 'sqlite3'
 gem 'better_errors'
@@ -27,6 +29,8 @@ group :assets do
 end
 
 gem 'jquery-rails'
+
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
