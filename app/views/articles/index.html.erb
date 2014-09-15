@@ -1,25 +1,43 @@
-<h1>Listing articles</h1>
+<h1>Gestion de Conocimiento</h1>
+<%= form_tag({:controller => "articles", :action => "index"}, :method => :get) do %>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Text</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+    <%= text_field_tag "searchbox", params[:searchbox] %>
+
+    <%= submit_tag "Buscar", :name => nil %>
+
+<% end %>
+
+<hr>
+
+
+<%= link_to 'Nuevo aporte', new_article_path %>
 
 <% @articles.each do |article| %>
-  <tr>
-    <td><%= article.title %></td>
-    <td><%= article.text %></td>
-    <td><%= link_to 'Show', article %></td>
-    <td><%= link_to 'Edit', edit_article_path(article) %></td>
-    <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+<hr>
+ <div class="row">
+ <div class="columns large-9 medium-6">
+ <h2><%= link_to article.title, article %></h2>
+ <blockquote>
+      <cite><%= article.user.name %> - <em><%= time_ago_in_words(article.created_at) %> ago</em></cite>
+       </blockquote>
+  </div>
+
+
+   <div class="columns large-3 medium-6">
+   <ul class="inline-list">
+  
+
+    <li><%= link_to 'Editar', edit_article_path(article) %></li>
+    <li><%= link_to 'Eliminar', article, method: :delete, data: { confirm: 'Desea eliminar esta incidencia?' } %></li>
+    </ul>
+    </div>
+    </div>
 <% end %>
-</table>
 
-<br />
 
-<%= link_to 'New Article', new_article_path %>
+
+
+
+
+
+

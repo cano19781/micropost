@@ -1,15 +1,16 @@
 class ArticlesController < ApplicationController
-  before_filter :authenticate_user!
   # GET /articles
   # GET /articles.json
   def index
     @articles = Article.all
-
+    @articles = Article.search(params[:searchbox])
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @articles }
+    
     end
   end
+
 
   # GET /articles/1
   # GET /articles/1.json
@@ -26,7 +27,7 @@ class ArticlesController < ApplicationController
   # GET /articles/new.json
   def new
     @article = Article.new
-
+    @users = User.all.map {|user| [user.name, user.id]} 
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @article }
@@ -41,8 +42,7 @@ class ArticlesController < ApplicationController
   # POST /articles
   # POST /articles.json
   def create
-    @article = Article.new(params[:article])
-
+   @article = current_user.articles.new(params[:article])
     respond_to do |format|
       if @article.save
         format.html { redirect_to @article, notice: 'Article was successfully created.' }
@@ -54,13 +54,13 @@ class ArticlesController < ApplicationController
     end
   end
 
-  # PUT /articles/1
-  # PUT /articles/1.json
+  # PATCH/PUT /articles/1
+  # PATCH/PUT /articles/1.json
   def update
-    @article = Article.find(params[:id])
+    @article = current_user.articles.find(params[:id])
 
     respond_to do |format|
-      if @article.update_attributes(params[:article])
+      if @article.update_attributes(article_params)
         format.html { redirect_to @article, notice: 'Article was successfully updated.' }
         format.json { head :no_content }
       else
@@ -81,4 +81,13 @@ class ArticlesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
+
+    # Use this method to whitelist the permissible parameters. Example:
+    # params.require(:person).permit(:name, :age)
+    # Also, you can specialize this method with per-user checking of permissible attributes.
+    def article_params
+      params.require(:article).permit(:text, :title, :user_id)
+    end
 end
