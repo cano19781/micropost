@@ -1,6 +1,9 @@
 Micropost::Application.routes.draw do
  
 
+  resources :employees
+
+
   resources :articles
 
 

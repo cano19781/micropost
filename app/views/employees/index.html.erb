@@ -1,0 +1,31 @@
+<h1>Empleados</h1>
+
+
+
+<% @employees.each do |employee| %>
+<hr>
+  <h2><%= link_to employee.nombres, employee %></h2>
+
+<div class="row">
+ <div class="columns large-9 medium-6">
+    <td><%= employee.apellidos %></td> => <td><%= employee.cargo %></td>
+   </div>
+    
+    <div class="columns large-3 medium-6">
+    
+    <ul class="inline-list">
+    
+    <li><%= link_to 'Editar', edit_employee_path(employee) %></li>
+    <li><%= link_to 'Eliminar', employee, method: :delete, data: { confirm: 'Desea eliminar?' } %></li>
+  </ul>
+
+</div>
+</div>
+
+
+<% end %>
+
+
+<br />
+
+<%= link_to 'Nuevo empleado', new_employee_path %>

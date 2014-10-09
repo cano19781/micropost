@@ -18,18 +18,5 @@ def self.search(search)
 
 end
 
-def self.search(search)
-
- if search 
-
-    where('text LIKE ?', "%#{search}%")
-
-  else
-
-    scoped
-
-  end
-
-end
 
 end
