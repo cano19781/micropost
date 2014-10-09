@@ -1,6 +1,15 @@
 <h1>Empleados</h1>
 
+<%= form_tag({:controller => "employees", :action => "index"}, :method => :get) do %>
 
+    <%= text_field_tag "searchbox", params[:searchbox] %>
+
+    <%= submit_tag "Buscar", :name => nil %>
+
+<% end %>
+
+<hr>
+<%= link_to 'Nuevo empleado', new_employee_path, class: 'button' %>
 
 <% @employees.each do |employee| %>
 <hr>
