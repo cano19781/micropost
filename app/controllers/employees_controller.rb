@@ -1,4 +1,6 @@
 class EmployeesController < ApplicationController
+  #Filter User before enter
+  before_filter :authenticate_user!
   # GET /employees
   # GET /employees.json
   def index
