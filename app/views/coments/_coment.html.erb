@@ -1,0 +1,16 @@
+<p>
+  <strong>Titulo de la solucion:</strong>
+  <%= coment.commenter %>
+</p>
+ 
+<p>
+  <strong>Descripcion de la solucion:</strong>
+  <%= coment.body %>
+</p>
+
+ 
+<p>
+  <%= link_to 'Destruir Solucion', [coment.trouble, coment],
+               method: :delete,
+               data: { confirm: 'Desea eliminar?' } %>
+</p>

@@ -42,15 +42,73 @@
  </li>
 
  <li>
- <%= link_to 'Empleados', employees_path %>
+ <%= link_to 'Empleados', works_path %>
  </li>
 
-  
-  </ul>
+  <li>
+ <%= link_to 'Peliculas', movies_path %>
+ </li>
+
+  <li>
+ <%= link_to 'Clientes', clients_path %>
+ </li>
+
+
+
+
+<section class="top-bar-section">
+    <!-- Right Nav Section -->
+    <ul class="Left">
+     
+      <li class="has-dropdown">
+        <a href="#">Tickets</a>
+        <ul class="dropdown">
+          <li><a href="#"><%= link_to 'Crear Tickets', new_ticket_path %></a></li>
+          <li><a href="#"><%= link_to 'Todos', tickets_path %></a></li>
+          <li><a href="#"><%= link_to 'Abiertos', new_ticket_path %></a></li>
+          <li><a href="#"><%= link_to 'Cerrados', new_ticket_path %></a></li>
+        </ul>
+      </li>
+    </ul>
+
+
+    <section class="top-bar-section">
+    <!-- Right Nav Section -->
+    <ul class="Left">
+     
+      <li class="has-dropdown">
+        <a href="#">Tickets</a>
+        <ul class="dropdown">
+          <li><a href="#"><%= link_to 'Crear Tickets', new_trouble_path %></a></li>
+          <li><a href="#"><%= link_to 'Todos', troubles_path %></a></li>
+          <li><a href="#"><%= link_to 'Abiertos', new_trouble_path %></a></li>
+          <li><a href="#"><%= link_to 'Cerrados', new_trouble_path %></a></li>
+        </ul>
+      </li>
+    </ul>
+
+
+
+
+
 
   <!-- Right Nav Section --> 
  <ul class="right"> 
  <li class="divider"></li> 
+
+  <li>
+ <%= link_to 'Contactanos', contacts_path %>
+ </li>
+
+   <li>
+ <%= link_to 'Nosotros', abouts_path %>
+ </li>
+
+ <li>
+ <%= link_to 'Preguntas', faqs_path %>
+ </li>
+         
+
  <% if user_signed_in? %> 
   
  <li> 
@@ -58,17 +116,17 @@
  </li> 
 
  <li> 
- <%= link_to 'Log Out', destroy_user_session_path, method: :delete %> 
+ <%= link_to 'Salir', destroy_user_session_path, method: :delete %> 
  </li> 
  
  <% else %> 
  
  <li class="active"> 
- <%= link_to 'Sign up', new_user_registration_path %> 
+ <%= link_to 'Registrarse', new_user_registration_path %> 
  </li> 
 
 <li> 
- <%= link_to 'Sign in', new_user_session_path %> 
+ <%= link_to 'Entrar', new_user_session_path %> 
  </li> 
  <% end %> 
   
@@ -80,7 +138,6 @@
 
 
   
-
 
    </section>
   </nav>
@@ -95,9 +152,13 @@
 </div>
 <% end %> 
 
-      <%= yield %>
+<%= yield %>
+
+   
     </div>
     </div>
     <%= javascript_include_tag "application" %>
   </body>
 </html>
+
+

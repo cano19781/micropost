@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+  before_filter :get_users
   #Filter User before enter
   before_filter :authenticate_user!
   # GET /articles
@@ -29,7 +30,7 @@ class ArticlesController < ApplicationController
   # GET /articles/new.json
   def new
     @article = Article.new
-    @users = User.all.map {|user| [user.name, user.id]} 
+    
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @article }
@@ -47,7 +48,7 @@ class ArticlesController < ApplicationController
    @article = current_user.articles.new(params[:article])
     respond_to do |format|
       if @article.save
-        format.html { redirect_to @article, notice: 'Article was successfully created.' }
+        format.html { redirect_to @article, notice: 'Gracias por su aporte de conocimiento.' }
         format.json { render json: @article, status: :created, location: @article }
       else
         format.html { render action: "new" }
@@ -63,7 +64,7 @@ class ArticlesController < ApplicationController
 
     respond_to do |format|
       if @article.update_attributes(article_params)
-        format.html { redirect_to @article, notice: 'Article was successfully updated.' }
+        format.html { redirect_to @article, notice: 'Su aporte ha sido editado satisfactoriamente.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -84,7 +85,11 @@ class ArticlesController < ApplicationController
     end
   end
 
+  
   private
+def get_users
+  @users = User.all.map {|user| [user.name, user.id]}
+end
 
     # Use this method to whitelist the permissible parameters. Example:
     # params.require(:person).permit(:name, :age)

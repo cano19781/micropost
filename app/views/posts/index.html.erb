@@ -1,5 +1,9 @@
 <h1>posts</h1>
 
+
+ 
+
+
 <%= link_to 'Nuevo Post', new_post_path, class: 'button' %>
 
 <% @posts.each do |post| %>
@@ -28,5 +32,12 @@
 
 
 
+<%= form_for @search do |f| %>   
+ <p>   
+<%= f.label :content_contains %>   
+<%= f.text_field :content_contains %>   
+</p>   
+<p class="button"><%= f.submit "Buscar" %> </p>   
+<% end %> 
 
 

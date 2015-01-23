@@ -1,4 +1,5 @@
 class Article < ActiveRecord::Base
+  resourcify
   belongs_to :user
   attr_accessible :text, :title
   has_many :comments, dependent: :destroy

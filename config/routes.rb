@@ -1,6 +1,39 @@
 Micropost::Application.routes.draw do
  
 
+ 
+  resources :troubles
+  resources :troubles do
+  resources :coments
+end
+
+
+
+  resources :works
+
+
+  resources :clients
+
+
+  resources :tickets
+
+
+  get "welcome/index"
+
+  resources :abouts
+
+
+  resources :faqs
+
+
+  resources :contacts
+
+
+  resources :movies
+
+  
+
+
   resources :employees
 
 
@@ -19,7 +52,7 @@ end
 
   resources :users
 
-  root :to => 'posts#index'
+  root :to => 'welcome#index'
 
 
   # The priority is based upon order of creation:

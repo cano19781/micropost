@@ -5,6 +5,14 @@
   <%= @employee.user %>
 </p>
 
+
+
+<% if @employee.image? %>
+<%= image_tag @employee.image.url(:thumb) %>
+<br />
+<%= link_to @employee.image.url, @employee.image.url %>
+<% end %>
+
 <p>
   <b>Foto:</b>
   <%= @employee.foto %>

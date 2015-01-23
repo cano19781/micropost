@@ -6,7 +6,10 @@ gem 'rails', '3.2.17'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'devise'
-gem "cancan"
+gem "paperclip"
+gem 'cancan'
+gem 'rolify'
+gem 'meta_search'
 
 gem 'strong_parameters'
 

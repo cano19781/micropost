@@ -1,0 +1,48 @@
+
+
+<% if @trouble.image? %>
+<%= image_tag @trouble.image.url(:thumb) %>
+<br />
+<%= link_to @trouble.image.url, @trouble.image.url %>
+
+
+<% end %>
+
+<p>
+  <strong>Titulo del problema o requerimiento:</strong>
+  <h5><strong><%= @trouble.title %></strong></h5>
+</p>
+ 
+<p>
+  <strong>Descripcion del problema o requerimiento:</strong>
+  <h5><strong><%= @trouble.text %></strong></h5>
+</p>
+
+<p>
+  <b>Usuario:</b>
+  <%= @trouble.user.name %>
+</p>
+
+<p>
+  <b>Importancia:</b>
+  <%= @trouble.severity %>
+</p>
+
+<p>
+  <b>Estatus:</b>
+  <%= @trouble.state %>
+</p>
+
+<p>
+  <b>Categoria:</b>
+  <%= @trouble.category %>
+</p>
+ 
+<h3>Soluciones aportadas</h3>
+<%= render @trouble.coments %>
+ 
+<h2>Agregar solucion:</h2>
+<%= render 'coments/form' %>
+ 
+<%= link_to 'Edit', edit_trouble_path(@trouble) %> |
+<%= link_to 'Back', troubles_path %>

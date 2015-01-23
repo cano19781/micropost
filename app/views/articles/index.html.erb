@@ -1,16 +1,12 @@
 <h1>Gestion de Conocimiento</h1>
+ <%= image_tag "aportes.png" %><%= image_tag "aportes.png" %>
 <%= form_tag({:controller => "articles", :action => "index"}, :method => :get) do %>
 
     <%= text_field_tag "searchbox", params[:searchbox] %>
 
-    <%= submit_tag "Buscar", :name => nil %>
+    <%= submit_tag "Buscar", class: 'button' %>
 
 <% end %>
-
-
-
-
-
 
 <hr>
 
