@@ -1,4 +1,13 @@
-<% if @trouble.image? %>
+<!-- Despliega el modals de informacion importante -->
+<a href="#" data-reveal-id="firstModal" class="radius button"><%= @trouble.title %></a>
+
+
+<!-- Inicio del Modal -->
+<div id="firstModal" class="reveal-modal" data-reveal>
+
+
+
+  <% if @trouble.image? %>
 <%= image_tag @trouble.image.url(:thumb) %>
 <br />
 <%= link_to @trouble.image.url, @trouble.image.url %>
@@ -40,25 +49,7 @@
   <%= @trouble.category %>
 </p>
 
-
-<%= link_to 'Editar', edit_trouble_path(@trouble) %>
-<%= link_to 'Atras', troubles_path %>
-
 <hr>
-
-
- <!-- Despliega el modals de informacion importante -->
-<a href="#" data-reveal-id="firstModal" class="radius button">Soluciones Aportadas</a>
-
-
-<!-- Inicio del Modal -->
-<div id="firstModal" class="reveal-modal" data-reveal>
-
-
-
-  
-<h3>Soluciones aportadas</h3>
-<%= render @trouble.coments %>
 
 
 
@@ -70,14 +61,21 @@
 
 
 
-  
   <h2>Agregar solucion:</h2>
-
 <%= render 'coments/form' %>
+ 
+<%= link_to 'Editar', edit_trouble_path(@trouble) %>
+<%= link_to 'Atras', troubles_path %>
 
 
   <a class="close-reveal-modal">&#215;</a>
 </div>
 
- 
+  <a class="close-reveal-modal">&#215;</a>
+</div>
+  <a class="close-reveal-modal">&#215;</a>
+</div>
+
+  <a class="close-reveal-modal">&#215;</a>
+</div>
 <!-- Fin del Modal -->

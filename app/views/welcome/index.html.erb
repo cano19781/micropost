@@ -1,12 +1,8 @@
 <div class="panel">
-  <h1>Micropost-Cinex</h1>
+  
   
 
-
-
-
-
-<%= image_tag "cinexprincipal_logo.jpg" %>
+<%= image_tag "cinexbig.png" %>
 
 
 
@@ -30,40 +26,35 @@
   <a class="close-reveal-modal">&#215;</a>
 </div>
 
-  <a class="close-reveal-modal">&#215;</a>
-</div>
+  
 <!-- Fin del Modal -->
 
-
-<ul class="inline-list">
-
-<li><h4><a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></h4></li>
-
-<li><h4><a href="https://twitter.com/twitter" class="twitter-follow-button" data-show-count="false">Follow @twitter</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></h4></li>
-
-<li><h4><a href="https://twitter.com/intent/tweet?button_hashtag=TwitterStories" class="twitter-hashtag-button">Tweet #TwitterStories</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></h4></li>
-
-<li><h4><a href="https://twitter.com/intent/tweet?screen_name=support" class="twitter-mention-button">Tweet to @support</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></h4></li>
+<a>
+<%= link_to(image_tag("twitter_64.png"), "https://twitter.com/CinexVe/", :target => "_blank") %>
+</a>
 
 
-</ul>
+<a>
+<%= link_to(image_tag("facebook_64.png"), "https://www.facebook.com/cinexve", :target => "_blank") %>
+</a>
+
+<a>
+<%= link_to(image_tag("Youtube.png"), "https://www.youtube.com/user/CanalCinexVe", :target => "_blank") %>
+</a>
+
+
 
 </div>
 
 
+<!-- Pie de pagina con nombre de creador --> 
 
-<iframe width="640" height="360" src="http://www.youtube.com/embed/zb-gmJVW5l" frameborder="0" allowfullscreen></iframe>
-
-
-
-#### Use a regular expression to extract the video code
-@video_id = (/([\w-]{11})/.match(@v_url)).to_s
-#### Put this information in the right format
-@embed_code = "<iframe width='640' height='360' src='http://www.youtube.com/embed/#{@video_id}' frameborder='0' allowfullscreen></iframe>"
+<dl class="sub-nav">
+  <dt>Creado por:</dt>
+  <dd class="active"><a href="#">Rogger Herrera</a></dd>
+  <dd><a href="#">Propacine S.R.L</a></dd>
+  <dd><a href="#">2014</a></dd>
+</dl>
 
 
 

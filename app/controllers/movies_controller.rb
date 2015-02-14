@@ -1,13 +1,12 @@
 class MoviesController < ApplicationController
    before_filter :authenticate_user!
+   http_basic_authenticate_with name: "cano19781", password: "caracas1", except: [:index, :show]
   # GET /movies
   # GET /movies.json
   def index
     @movies = Movie.all
-    
     @search = Movie.search(params[:search])   
     @movies = @search.all  
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @movies }
@@ -48,7 +47,7 @@ class MoviesController < ApplicationController
 
     respond_to do |format|
       if @movie.save
-        format.html { redirect_to @movie, notice: 'Movie was successfully created.' }
+        format.html { redirect_to @movie, notice: 'La pelicula ha sido creada correctamente.' }
         format.json { render json: @movie, status: :created, location: @movie }
       else
         format.html { render action: "new" }
@@ -64,7 +63,7 @@ class MoviesController < ApplicationController
 
     respond_to do |format|
       if @movie.update_attributes(movie_params)
-        format.html { redirect_to @movie, notice: 'Movie was successfully updated.' }
+        format.html { redirect_to @movie, notice: 'La pelicula ha sido actualizada correctamente.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

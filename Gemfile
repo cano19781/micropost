@@ -10,6 +10,7 @@ gem "paperclip"
 gem 'cancan'
 gem 'rolify'
 gem 'meta_search'
+gem 'will_paginate', '~> 3.0.6'
 
 gem 'strong_parameters'
 

@@ -1,13 +1,24 @@
 <%= form_for([@trouble, @trouble.coments.build]) do |f| %>
-  <p>
-    <%= f.label :Titulo %><br>
+ 
+<div class="large-12 columns">
+ <label><span data-tooltip aria-haspopup="true" class="has-tip" title="Favor escribir un titulo para el problema">Titulo</span> 
     <%= f.text_field :commenter %>
-  </p>
+   </label>
+  </div>
+  
+<div class="row">
+    <div class="large-12 columns">
+  <label><span data-tooltip aria-haspopup="true" class="has-tip" title="Favor describir el problema de manera detallada">Descripcion</span> 
+    <%= f.text_area :body, :cols => "30", :rows => "10" %>
+    </label>
+ </div>
+
+
+<div class="large-12 columns">
   <p>
-    <%= f.label :Descripcion %><br>
-    <%= f.text_area :body %>
+    <%= f.submit 'Agregar', class: 'button' %>
   </p>
-  <p>
-    <%= f.submit %>
-  </p>
+  </div>
 <% end %>
+
+

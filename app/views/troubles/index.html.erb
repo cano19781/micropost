@@ -2,13 +2,13 @@
 
 <table>
   <tr>
-    <th>Client</th>
-    <th>Title</th>
-    <th>Text</th>
-    <th>User</th>
-    <th>Severity</th>
-    <th>State</th>
-    <th>Category</th>
+    
+    <th>Problema o solicitud</th>
+    <th>Sucursal</th>
+    <th>Usuario</th>
+    <th>Importancia</th>
+    <th>Estatus</th>
+    <th>Categoria</th>
     <th></th>
     <th></th>
     <th></th>
@@ -16,20 +16,25 @@
 
 <% @troubles.each do |trouble| %>
   <tr>
+  <div class="row">
+    <div class="columns large-9 medium-6">
+    <td><%= link_to trouble.title, trouble %></td>
     <td><%= trouble.client.name %></td>
-    <td><%= trouble.title %></td>
-    <td><%= trouble.text %></td>
-    <td><%= trouble.user.name %></td>
+    <td><%= trouble.user.name %> - <em><%= time_ago_in_words(trouble.created_at) %> ago</em></td>
     <td><%= trouble.severity %></td>
     <td><%= trouble.state %></td>
     <td><%= trouble.category %></td>
-    <td><%= link_to 'Show', trouble %></td>
-    <td><%= link_to 'Edit', edit_trouble_path(trouble) %></td>
-    <td><%= link_to 'Destroy', trouble, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Editar', edit_trouble_path(trouble) %></td>
+    <td><%= link_to 'Eliminar', trouble, method: :delete, data: { confirm: 'Desea eliminar este ticket?' } %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Trouble', new_trouble_path %>
+<h3><%= link_to 'Nuevo Ticket', new_trouble_path %></h3>
+
+<%= will_paginate @troubles %>
+
+
+

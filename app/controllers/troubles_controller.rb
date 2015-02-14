@@ -1,12 +1,13 @@
 class TroublesController < ApplicationController
 before_filter :authenticate_user!
-   http_basic_authenticate_with name: "cano19781", password: "caracas1", except: [:index, :show]
+http_basic_authenticate_with name: "cano19781", password: "caracas1", except: [:index, :show]
 
    
   # GET /troubles
   # GET /troubles.json
   def index
     @troubles = Trouble.all
+    @troubles = Trouble.order.paginate(:per_page => 5, :page => params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -50,7 +51,7 @@ before_filter :authenticate_user!
 
     respond_to do |format|
       if @trouble.save
-        format.html { redirect_to @trouble, notice: 'Trouble was successfully created.' }
+        format.html { redirect_to @trouble, notice: 'El ticket ha sido creado correctamente.' }
         format.json { render json: @trouble, status: :created, location: @trouble }
       else
         format.html { render action: "new" }
@@ -66,7 +67,7 @@ before_filter :authenticate_user!
 
     respond_to do |format|
       if @trouble.update_attributes(trouble_params)
-        format.html { redirect_to @trouble, notice: 'Trouble was successfully updated.' }
+        format.html { redirect_to @trouble, notice: 'El ticket ha sido actualizado correctamente.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

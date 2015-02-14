@@ -1,12 +1,12 @@
-<h1>Listing clients</h1>
+<h1>Clientes</h1>
 
 <table>
   <tr>
-    <th>Name</th>
-    <th>Address</th>
-    <th>Phone</th>
+    <th>Cliente</th>
+    <th>Direccion</th>
+    <th>Telefono</th>
     <th>Email</th>
-    <th>User</th>
+    <!-- <th>Usuario</th> -->
     <th></th>
     <th></th>
     <th></th>
@@ -18,17 +18,18 @@
     <td><%= client.address %></td>
     <td><%= client.phone %></td>
     <td><%= client.email %></td>
-    <td><%= client.user_id %></td>
-    <td><%= link_to 'Show', client %></td>
-    <td><%= link_to 'Edit', edit_client_path(client) %></td>
-    <td><%= link_to 'Destroy', client, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <!-- <td><%= client.user_id %></td> -->
+    <td><%= link_to 'Mostrar', client %></td>
+    <td><%= link_to 'Editar', edit_client_path(client) %></td>
+    <td><%= link_to 'Eliminar', client, method: :delete, data: { confirm: 'Desea eliminar este cliente?' } %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Client', new_client_path %>
+
+<h3><%= link_to 'Nuevo Cliente', new_client_path %></h3>
 
 
 

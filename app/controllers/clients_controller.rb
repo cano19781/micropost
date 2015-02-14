@@ -1,4 +1,5 @@
 class ClientsController < ApplicationController
+  before_filter :authenticate_user!
   # GET /clients
   # GET /clients.json
   def index
@@ -25,6 +26,7 @@ class ClientsController < ApplicationController
   # GET /clients/new.json
   def new
     @client = Client.new
+    @users = User.all.map {|user| [user.name, user.id]}
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,6 +37,7 @@ class ClientsController < ApplicationController
   # GET /clients/1/edit
   def edit
     @client = Client.find(params[:id])
+    @users = User.all.map {|user| [user.name, user.id]}
   end
 
   # POST /clients
@@ -44,7 +47,7 @@ class ClientsController < ApplicationController
 
     respond_to do |format|
       if @client.save
-        format.html { redirect_to @client, notice: 'Client was successfully created.' }
+        format.html { redirect_to @client, notice: 'El cliente ha sido creado.' }
         format.json { render json: @client, status: :created, location: @client }
       else
         format.html { render action: "new" }
@@ -60,7 +63,7 @@ class ClientsController < ApplicationController
 
     respond_to do |format|
       if @client.update_attributes(client_params)
-        format.html { redirect_to @client, notice: 'Client was successfully updated.' }
+        format.html { redirect_to @client, notice: 'El cliente ha sido actualizado.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

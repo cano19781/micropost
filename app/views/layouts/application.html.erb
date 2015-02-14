@@ -20,13 +20,13 @@
 <%= link_to 'Micropost-Cinex', root_path %>
 </h1>
  </li> 
-<!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone --> 
+<!-- Si se remueve la clase menu-icon en los telefonos celulares no sale el menu --> 
 <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li> 
 </ul> 
 <section class="top-bar-section"> 
-<!-- Right Nav Section se colocara aqui mas adelante--> 
 
- <!-- Left Nav Section --> 
+
+ <!-- Navegador derecho --> 
  <ul class="left"> 
  <li class="divider"></li>
  <li>
@@ -54,27 +54,11 @@
  </li>
 
 
+    
+   
 
 
-<section class="top-bar-section">
-    <!-- Right Nav Section -->
-    <ul class="Left">
-     
-      <li class="has-dropdown">
-        <a href="#">Tickets</a>
-        <ul class="dropdown">
-          <li><a href="#"><%= link_to 'Crear Tickets', new_ticket_path %></a></li>
-          <li><a href="#"><%= link_to 'Todos', tickets_path %></a></li>
-          <li><a href="#"><%= link_to 'Abiertos', new_ticket_path %></a></li>
-          <li><a href="#"><%= link_to 'Cerrados', new_ticket_path %></a></li>
-        </ul>
-      </li>
-    </ul>
-
-
-    <section class="top-bar-section">
-    <!-- Right Nav Section -->
-    <ul class="Left">
+    <!-- Combo de ticket --> 
      
       <li class="has-dropdown">
         <a href="#">Tickets</a>
@@ -92,7 +76,7 @@
 
 
 
-  <!-- Right Nav Section --> 
+  <!-- Navegador izquierdo --> 
  <ul class="right"> 
  <li class="divider"></li> 
 

@@ -45,13 +45,12 @@ Imagen principal que se mueve -->
 
 <div class="large-3 columns">
 <%= form_for @search do |f| %>
- 
-</p>   
-<p class="button"><%= f.submit "Buscar" %>
-<%= f.text_field :title_contains %>  </p>   
-</ul>
-</div>
+  
+<%= f.submit 'Buscar', class: 'button' %><%= f.text_field :title_contains %>   
 <% end %> 
+
+
+    
 
 
 

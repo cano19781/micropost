@@ -37,4 +37,6 @@ Micropost::Application.configure do
   #devise config
   config.action_mailer.default_url_options = { host: 'localhost:3000' }
 
+  
+
 end

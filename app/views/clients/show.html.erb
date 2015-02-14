@@ -1,17 +1,17 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Name:</b>
+  <b>Cliente:</b>
   <%= @client.name %>
 </p>
 
 <p>
-  <b>Address:</b>
+  <b>Direccion:</b>
   <%= @client.address %>
 </p>
 
 <p>
-  <b>Phone:</b>
+  <b>Telefono:</b>
   <%= @client.phone %>
 </p>
 
@@ -20,11 +20,17 @@
   <%= @client.email %>
 </p>
 
+<%
+=begin %>
+
 <p>
   <b>User:</b>
   <%= @client.user_id %>
 </p>
 
 
-<%= link_to 'Edit', edit_client_path(@client) %> |
-<%= link_to 'Back', clients_path %>
+<%
+=end %>
+
+<%= link_to 'Editar', edit_client_path(@client) %> |
+<%= link_to 'Atras', clients_path %>
