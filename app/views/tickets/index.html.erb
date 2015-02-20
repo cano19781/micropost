@@ -1,42 +1,28 @@
-<ul class="inline-list">
-<li><h4><%= link_to 'Crear Tickets', new_ticket_path %></h4></li> 
-<li><h4><%= link_to 'Crear Clientes', new_client_path %></h4></li>
-<li><h4><%= link_to 'Crear Tickets', new_ticket_path %></h4></li> 
-<li><h4><%= link_to 'Crear Clientes', new_client_path %></h4></li>
-<li><h4><%= link_to 'Crear Tickets', new_ticket_path %></h4></li> 
-<li><h4><%= link_to 'Crear Clientes', new_client_path %></h4></li>
+<h1>Tickets</h1> 
+
+
+<!-- Grupo de botones redondos -->
+<ul class="button-group round">
+  <li><a href="#"><%= link_to 'Abiertos', abierto_path("abierto"), class: 'button' %></a></li>
+  <li><a href="#"><%= link_to 'Cerrados', cerrado_path("cerrado"), class: 'button' %></a></li>
+  <li><a href="#"><%= link_to 'Nuevo Ticket', new_trouble_path, class: 'button' %></a></li>
+  <li><a href="#"><%= link_to 'Todos', troubles_path, class: 'button' %></a></li>
 </ul>
-<hr>
+
+<!-- Fin grupo de botones redondos -->
+
+
+
 
 <%= image_tag "cliente.jpg" %>
 
 
-<% @tickets.each do |ticket| %>
 
 
 
-<hr>
- <div class="row">
- <div class="columns large-9 medium-9">
- <h3><%= link_to ticket.problem, ticket %></h3>
- <h6><em><%= ticket.client.name %></em></h6>
- <blockquote>
-      <cite><%= ticket.user.name %> - <em><%= time_ago_in_words(ticket.created_at) %> ago</em></cite>
-       </blockquote>
-  </div>
-
- 
-   <div class="columns large-3 medium-9">
-
-   <ul class="inline-list">
 
 
-    <li><%= link_to 'Edit', edit_ticket_path(ticket) %></li>
-    <li><%= link_to 'Destroy', ticket, method: :delete, data: { confirm: 'Are you sure?' } %></li>
-    </ul>
-    </div>
-    </div>
 
-<% end %>
+
 
 

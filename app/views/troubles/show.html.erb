@@ -1,9 +1,12 @@
+<!-- Editar -->
+<%= link_to 'Editar', edit_trouble_path(@trouble) %>
+<%= image_tag "editar-32.png" %>
+<hr>
+
 <% if @trouble.image? %>
 <%= image_tag @trouble.image.url(:thumb) %>
 <br />
 <%= link_to @trouble.image.url, @trouble.image.url %>
-
-
 <% end %>
 
 <p>
@@ -41,8 +44,11 @@
 </p>
 
 
-<%= link_to 'Editar', edit_trouble_path(@trouble) %>
+<!-- Atras -->
+<%= link_to(image_tag("atras-32.png"), troubles_path) %>
 <%= link_to 'Atras', troubles_path %>
+
+
 
 <hr>
 
@@ -81,3 +87,4 @@
 
  
 <!-- Fin del Modal -->
+

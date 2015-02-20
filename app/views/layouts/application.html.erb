@@ -53,24 +53,31 @@
  <%= link_to 'Clientes', clients_path %>
  </li>
 
+ <li>
+ <%= link_to 'Tickets', tickets_path %>
+ </li>
 
+</ul>
     
    
+<%
+=begin %>
 
-
-    <!-- Combo de ticket --> 
+    <!-- Combo de ticket solo sera utilizado si se necesita lista desplegable --> 
      
       <li class="has-dropdown">
         <a href="#">Tickets</a>
         <ul class="dropdown">
           <li><a href="#"><%= link_to 'Crear Tickets', new_trouble_path %></a></li>
-          <li><a href="#"><%= link_to 'Todos', troubles_path %></a></li>
-          <li><a href="#"><%= link_to 'Abiertos', new_trouble_path %></a></li>
-          <li><a href="#"><%= link_to 'Cerrados', new_trouble_path %></a></li>
+          <li><a href="#"><%= link_to 'Tickets', tickets_path %></a></li>
+          <li><a href="#"><%= link_to 'Abiertos', abierto_path("abierto") %></a></li>
+          <li><a href="#"><%= link_to 'Cerrados', cerrado_path("cerrado") %></a></li>
         </ul>
       </li>
     </ul>
 
+<% 
+=end %>
 
 
 
@@ -144,5 +151,4 @@
     <%= javascript_include_tag "application" %>
   </body>
 </html>
-
 

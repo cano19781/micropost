@@ -54,7 +54,9 @@ end
   resources :users
 
   root :to => 'welcome#index'
-
+  match 'troubles/:state/cerrado', to: 'troubles#cerrado', as: "cerrado"
+  match 'troubles/:state/abierto',to: 'troubles#abierto',as:"abierto"
+  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

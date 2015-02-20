@@ -5,6 +5,16 @@ http_basic_authenticate_with name: "cano19781", password: "caracas1", except: [:
    
   # GET /troubles
   # GET /troubles.json
+def abierto
+  @troubles = Trouble.order.paginate(:per_page => 8, :page => params[:page]).where(:state=>"Abierto")
+  @numero = Trouble.where(:state=>"Abierto").count
+end
+
+def cerrado
+  @troubles = Trouble.order.paginate(:per_page => 8, :page => params[:page]).where(:state=>"Cerrado")
+  @numero = Trouble.where(:state=>"Cerrado").count
+end
+
   def index
     @troubles = Trouble.all
     @troubles = Trouble.order.paginate(:per_page => 5, :page => params[:page])

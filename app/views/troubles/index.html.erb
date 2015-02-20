@@ -1,4 +1,16 @@
-<h1>Tickets</h1>
+<h1>Tickets</h1> 
+
+
+<!-- Grupo de botones redondos -->
+<ul class="button-group round">
+  <li><a href="#"><%= link_to 'Abiertos', abierto_path("abierto"), class: 'button tiny' %></a></li>
+  <li><a href="#"><%= link_to 'Cerrados', cerrado_path("cerrado"), class: 'button tiny' %></a></li>
+  <li><a href="#"><%= link_to 'Nuevo Ticket', new_trouble_path, class: 'button tiny' %></a></li>
+</ul>
+
+<!-- Fin grupo de botones redondos -->
+
+
 
 <table>
   <tr>
@@ -32,7 +44,7 @@
 
 <br />
 
-<h3><%= link_to 'Nuevo Ticket', new_trouble_path %></h3>
+
 
 <%= will_paginate @troubles %>
 
